@@ -1422,3 +1422,267 @@ body{
 .brand--footer{opacity:.9}
 .footer__hint{color: rgba(255,255,255,.80)}
 
+/* === Sponsor-ready polish patch === */
+
+/* Global type + rhythm */
+.section{
+  padding: 78px 0; /* slightly more premium breathing room */
+}
+
+.section__rule{
+  margin: 12px 0 20px; /* tighter, consistent */
+}
+
+.section__lead{
+  max-width: 78ch;
+  color: rgba(255,255,255,.76);
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+.section__text{
+  color: rgba(255,255,255,.84);
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+/* Headings: less “over-tracked”, more premium */
+.section__title{
+  letter-spacing: .12em; /* was a bit too wide */
+}
+
+/* Buttons feel more premium */
+.btn{
+  border-color: rgba(255,255,255,.14);
+}
+.btn:hover{
+  border-color: rgba(255,255,255,.22);
+}
+
+/* Cards: unify surfaces */
+.card, .block, .pkg, .tier, .placeCard, .venueCard, .timeCard, .impactCard{
+  background: rgba(18,18,18,.46);
+  border-color: rgba(255,255,255,.11);
+}
+
+/* Reduce hover “jumpiness” slightly (more corporate sponsor-friendly) */
+.card:hover, .pkg:hover, .placeCard:hover{
+  transform: translateY(-1px);
+}
+
+/* Page 6 — pricing hierarchy */
+.tier__price{
+  font-size: 30px;       /* slightly bigger */
+  line-height: 1.05;
+}
+.tier__hint{
+  color: rgba(255,255,255,.66);
+}
+.tier__list{
+  font-size: 13px;
+  line-height: 1.75;
+}
+.tier__list li{
+  margin-bottom: 6px;    /* cleaner scan */
+}
+.tier__list li:last-child{
+  margin-bottom: 0;
+}
+
+/* Page 7 — packages: clearer tier look */
+.pkg__name{
+  letter-spacing: .12em;
+}
+.pkg__price{
+  font-size: 19px;
+}
+.pkg__list li{
+  margin-bottom: 6px;
+}
+.pkg__list li:last-child{
+  margin-bottom: 0;
+}
+
+/* Page 8 — placement cards: more readable lists */
+.placeCard__list li{
+  margin-bottom: 6px;
+}
+.placeCard__list li:last-child{
+  margin-bottom: 0;
+}
+
+/* Page 11 — impact hero: improve text readability on photo */
+.impactHero__overlay{
+  background: rgba(0,0,0,.52); /* stronger overlay */
+}
+.impactHero__title{
+  text-shadow: 0 10px 30px rgba(0,0,0,.60);
+}
+
+/* Gallery: slightly taller tiles + smoother hover */
+.gItem img{
+  height: 200px; /* better visual presence */
+  transition: transform .22s ease, filter .22s ease, opacity .22s ease;
+}
+.gItem:hover img{
+  transform: scale(1.05);
+}
+
+/* Contact card: tighter and more “proposal-like” */
+.contactCard__title{
+  letter-spacing: .08em;
+}
+.contactList{
+  color: rgba(255,255,255,.82);
+}
+
+/* Small improvement: reduce extreme grayscale in media sections */
+.mediaPanel::before,
+.impactHero__bg{
+  filter: grayscale(85%);
+}
+
+/* === Mobile polish (best sponsor-ready phone view) === */
+
+@media (max-width: 900px){
+  .container{
+    width: min(var(--max), calc(100% - 28px)); /* slightly tighter margins on mobile */
+  }
+
+  .section{
+    padding: 58px 0;
+  }
+
+  /* Nav: simplify */
+  .nav__inner{
+    padding: 12px 0;
+  }
+  .btn{
+    padding: 11px 14px;  /* better tap target */
+    border-radius: 16px;
+  }
+
+  /* Hero: reduce height + avoid cramped layout */
+  .hero{
+    min-height: unset;
+    padding: 84px 0 40px;
+  }
+  .hero__inner{
+    gap: 14px;
+  }
+  .hero__titleBig{
+    font-size: clamp(44px, 10vw, 72px);
+  }
+  .hero__titleSub{
+    font-size: clamp(16px, 4.2vw, 22px);
+    letter-spacing: .16em;
+  }
+  .hero__meta{
+    gap: 8px;
+  }
+  .pill{
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .hero__ctaRow{
+    gap: 10px;
+  }
+  .hero__card{
+    padding: 16px;
+  }
+
+  /* Split sections (Intro): stack with better balance */
+  .split{
+    gap: 14px;
+  }
+  .mediaPanel{
+    min-height: 260px;
+  }
+
+  /* Grids: ensure single column cleanly */
+  .grid--3,
+  .placementGrid,
+  .venueGrid,
+  .timelineGrid,
+  .impactGrid{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Page 6: sponsorship tiers stack nicely */
+  .tier{
+    grid-template-columns: 1fr !important;
+  }
+  .tier__left{
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  }
+  .tier__price{
+    font-size: 28px;
+  }
+
+  /* Page 7: partner packages -> 1 column */
+  .pkgGrid{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Page 10: steps readability */
+  .step__content{
+    padding-left: 10px;
+  }
+  .step__title{
+    font-size: 13px;
+  }
+  .step__text{
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* Gallery: better tile sizes on phones */
+  .galleryGrid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .gItem img{
+    height: 170px;
+  }
+
+  /* Contact card */
+  .contactCard{
+    grid-template-columns: 1fr !important;
+  }
+  .contactCard__badge{
+    width: 100%;
+    justify-content: center;
+  }
+  .contactCard__actions .btn{
+    flex: 1 1 auto; /* buttons expand and look intentional */
+    justify-content: center;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 420px){
+  .container{
+    width: calc(100% - 22px);
+  }
+
+  .hero__titleBig{
+    font-size: 42px;
+  }
+  .hero__titleSub{
+    font-size: 16px;
+    letter-spacing: .14em;
+  }
+
+  .galleryGrid{
+    grid-template-columns: 1fr; /* 1 column on tiny screens */
+  }
+  .gItem img{
+    height: 200px;
+  }
+
+  .nav .btn{
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
